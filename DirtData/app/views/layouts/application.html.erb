@@ -2,6 +2,9 @@
 <html>
   <head>
     <title>DirtData</title>
+    <% if signed_in? %>
+     <a>Signed in as <%= current_user.email %></a>
+    <% end %>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
