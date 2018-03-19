@@ -2,7 +2,7 @@
 
 <h1>Readings</h1>
 
-<table>
+<table id = readings_table>
   <thead>
     <tr>
       <th>Time</th>
@@ -18,9 +18,6 @@
         <td><%= reading.time %></td>
         <td><%= reading.moisture %></td>
         <td><%= reading.light %></td>
-        <td><%= link_to 'Show', reading %></td>
-        <td><%= link_to 'Edit', edit_reading_path(reading) %></td>
-        <td><%= link_to 'Destroy', reading, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
