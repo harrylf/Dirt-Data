@@ -4,9 +4,8 @@ class GardensController < ApplicationController
   # GET /gardens
   # GET /gardens.json
   def index
-    @gardens = Garden.all
+    @gardens = current_user_gardens(current_user)
   end
-
   # GET /gardens/1
   # GET /gardens/1.json
   def show
@@ -25,9 +24,10 @@ class GardensController < ApplicationController
   # POST /gardens.json
   def create
     @garden = Garden.new(garden_params)
-
     respond_to do |format|
       if @garden.save
+        current_user.update_column(:garden_name, @garden.name)
+        puts current_user.garden_name
         format.html { redirect_to @garden, notice: 'Garden was successfully created.' }
         format.json { render :show, status: :created, location: @garden }
       else
@@ -70,5 +70,8 @@ class GardensController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def garden_params
       params.require(:garden).permit(:name, :password)
+    end
+    def current_user_gardens(user)
+      Garden.where("gardens.name = ?",user.garden_name)
     end
 end
