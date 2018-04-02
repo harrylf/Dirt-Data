@@ -5,6 +5,11 @@ class GardensController < ApplicationController
   # GET /gardens.json
   def index
     @gardens = current_user_gardens(current_user)
+    if(@gardens.size>0)
+      redirect_to garden_path(@gardens.first)
+    else
+      @gardens=Garden.all
+    end
   end
   # GET /gardens/1
   # GET /gardens/1.json
