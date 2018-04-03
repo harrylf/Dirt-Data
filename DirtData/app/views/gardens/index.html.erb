@@ -14,7 +14,8 @@
     <% @gardens.each do |garden| %>
       <tr>
         <td><%= garden.name %></td>
-        <td><%= link_to 'Show', garden %></td>
+        <td> <%= garden.id %></td>
+        <td><%= link_to 'Register a garden',register_garden_path(@user,:id => garden.id) %></td>
         <td><%= link_to 'Remove Garden', garden, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

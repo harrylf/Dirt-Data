@@ -66,6 +66,13 @@ class GardensController < ApplicationController
     end
   end
 
+  def register
+    puts("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+    @garden = Garden.find(params[:id])
+    current_user.update_column(:garden_name, @garden.name)
+    flash[:notice] = current_user.garden_name
+    redirect_to root_path
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_garden
@@ -79,4 +86,5 @@ class GardensController < ApplicationController
     def current_user_gardens(user)
       Garden.where("gardens.name = ?",user.garden_name)
     end
+
 end
