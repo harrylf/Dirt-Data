@@ -1,18 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @garden.name %>
-</p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @garden.password %>
-</p>
+<strong>Water Readings</strong>
 <table>
   <thead>
     <tr>
-      <th>Reading</th>
+      <th>Time of Reading</th>
       <th>Node 1</th>
       <th>Node 2</th>
       <th>Node 3</th>
@@ -24,11 +17,10 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @garden.water_reading.each do |reading| %>
       <tr>
-        <td><%= reading.created_at%></td>
+        <td><%= reading.created_at.in_time_zone("Central Time (US & Canada)").strftime("%m-%d-%Y %l:%M %p") %></td>
         <td><%= reading.node1 %></td>
         <td><%= reading.node2 %></td>
         <td><%= reading.node3 %></td>
