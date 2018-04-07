@@ -9,6 +9,7 @@ class CreateWaterReadings < ActiveRecord::Migration[5.1]
       t.integer :node6
       t.integer :node7
       t.integer :node8
+      t.integer :garden_id
 
       t.timestamps
     end

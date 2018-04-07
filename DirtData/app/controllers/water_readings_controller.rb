@@ -69,6 +69,6 @@ class WaterReadingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def water_reading_params
-      params.require(:water_reading).permit(:node1, :node2, :node3, :node4, :node5, :node6, :node7, :node8)
+      params.require(:water_reading).permit(:node1, :node2, :node3, :node4, :node5, :node6, :node7, :node8 ,:garden_id)
     end
 end

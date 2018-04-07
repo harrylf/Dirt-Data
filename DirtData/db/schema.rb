@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180319204940) do
+ActiveRecord::Schema.define(version: 20180407170621) do
 
   create_table "gardens", force: :cascade do |t|
     t.string "name"
@@ -44,6 +44,20 @@ ActiveRecord::Schema.define(version: 20180319204940) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["garden_name"], name: "index_users_on_garden_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "water_readings", force: :cascade do |t|
+    t.integer "node1"
+    t.integer "node2"
+    t.integer "node3"
+    t.integer "node4"
+    t.integer "node5"
+    t.integer "node6"
+    t.integer "node7"
+    t.integer "node8"
+    t.integer "garden_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -39,6 +39,10 @@
   <strong>Node8:</strong>
   <%= @water_reading.node8 %>
 </p>
+<p>
+  <strong>Time:</strong>
+  <%= @water_reading.created_at %>
+</p>
 
 <%= link_to 'Edit', edit_water_reading_path(@water_reading) %> |
 <%= link_to 'Back', water_readings_path %>
