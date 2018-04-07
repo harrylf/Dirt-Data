@@ -1,0 +1,2 @@
+class WaterReading < ApplicationRecord
+end
