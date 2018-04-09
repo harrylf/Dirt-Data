@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :light_readings
   resources :water_readings
   resources :gardens
   get 'gardens/register/:id' => 'gardens#register', :as => :register_garden

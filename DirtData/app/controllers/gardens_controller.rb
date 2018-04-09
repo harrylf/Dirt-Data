@@ -67,7 +67,6 @@ class GardensController < ApplicationController
   end
 
   def register
-    puts("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
     @garden = Garden.find(params[:id])
     current_user.update_column(:garden_name, @garden.name)
     flash[:notice] = current_user.garden_name

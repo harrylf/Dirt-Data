@@ -1,0 +1,67 @@
+<%= form_with(model: light_reading, local: true) do |form| %>
+  <% if light_reading.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(light_reading.errors.count, "error") %> prohibited this light_reading from being saved:</h2>
+
+      <ul>
+      <% light_reading.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :node1 %>
+    <%= form.number_field :node1, id: :light_reading_node1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :node2 %>
+    <%= form.number_field :node2, id: :light_reading_node2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :node3 %>
+    <%= form.number_field :node3, id: :light_reading_node3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :node4 %>
+    <%= form.number_field :node4, id: :light_reading_node4 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :node5 %>
+    <%= form.number_field :node5, id: :light_reading_node5 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :node6 %>
+    <%= form.number_field :node6, id: :light_reading_node6 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :node7 %>
+    <%= form.number_field :node7, id: :light_reading_node7 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :node8 %>
+    <%= form.number_field :node8, id: :light_reading_node8 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :temp %>
+    <%= form.number_field :temp, id: :light_reading_temp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :garden_id %>
+    <%= form.number_field :garden_id, id: :light_reading_garden_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
