@@ -5,6 +5,10 @@ class WaterReadingsController < ApplicationController
   # GET /water_readings.json
   def index
     @water_readings = WaterReading.all
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
   end
 
   # GET /water_readings/1

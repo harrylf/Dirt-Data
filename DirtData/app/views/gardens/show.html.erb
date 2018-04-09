@@ -18,7 +18,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @garden.water_reading.each do |reading| %>
+    <% @garden.water_reading.take(200).reverse.each do |reading| %>
       <tr>
         <td><%= reading.created_at.in_time_zone("Central Time (US & Canada)").strftime("%m-%d-%Y %l:%M %p") %></td>
         <td><%= reading.node1 %></td>
@@ -35,4 +35,5 @@
 </table>
 <%= link_to 'Edit', edit_garden_path(@garden) %> |
 <%= link_to 'Back', gardens_path %>
+<%= link_to 'View All Readings', water_readings_path %>
 <%= link_to 'New Reading',new_water_reading_path(@garden) %>

@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Created At</th>
       <th>Node1</th>
       <th>Node2</th>
       <th>Node3</th>
@@ -20,6 +21,7 @@
   <tbody>
     <% @water_readings.each do |water_reading| %>
       <tr>
+        <td><%= water_reading.created_at.in_time_zone("Central Time (US & Canada)").strftime("%m-%d-%Y %l:%M %p") %></td>
         <td><%= water_reading.node1 %></td>
         <td><%= water_reading.node2 %></td>
         <td><%= water_reading.node3 %></td>
@@ -37,5 +39,5 @@
 </table>
 
 <br>
-
+<%= link_to 'Export Readings to excel spreadsheet', water_readings_path(format: "xlsx") %>
 <%= link_to 'New Water Reading', new_water_reading_path %>
