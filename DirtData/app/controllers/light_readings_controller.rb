@@ -5,6 +5,10 @@ class LightReadingsController < ApplicationController
   # GET /light_readings.json
   def index
     @light_readings = LightReading.all
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
   end
 
   # GET /light_readings/1
