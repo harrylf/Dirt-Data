@@ -14,6 +14,22 @@ class GardensController < ApplicationController
   # GET /gardens/1
   # GET /gardens/1.json
   def show
+    gon.water_node1 = @garden.water_reading.last.node1
+    gon.water_node2 = @garden.water_reading.last.node2
+    gon.water_node3 = @garden.water_reading.last.node3
+    gon.water_node4 = @garden.water_reading.last.node4
+    gon.water_node5 = @garden.water_reading.last.node5
+    gon.water_node6 = @garden.water_reading.last.node6
+    gon.water_node7 = @garden.water_reading.last.node7
+    gon.water_node8 = @garden.water_reading.last.node8
+    gon.light_node1 = @garden.light_reading.last.node1
+    gon.light_node2 = @garden.light_reading.last.node2
+    gon.light_node3 = @garden.light_reading.last.node3
+    gon.light_node4 = @garden.light_reading.last.node4
+    gon.light_node5 = @garden.light_reading.last.node5
+    gon.light_node6 = @garden.light_reading.last.node6
+    gon.light_node7 = @garden.light_reading.last.node7
+    gon.light_node8 = @garden.light_reading.last.node8
   end
 
   # GET /gardens/new
