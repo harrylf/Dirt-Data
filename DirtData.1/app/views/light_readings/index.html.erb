@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Light Readings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Node1</th>
+      <th>Node2</th>
+      <th>Node3</th>
+      <th>Node4</th>
+      <th>Node5</th>
+      <th>Node6</th>
+      <th>Node7</th>
+      <th>Node8</th>
+      <th>Temp</th>
+      <th>Garden</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @light_readings.each do |light_reading| %>
+      <tr>
+        <td><%= light_reading.node1 %></td>
+        <td><%= light_reading.node2 %></td>
+        <td><%= light_reading.node3 %></td>
+        <td><%= light_reading.node4 %></td>
+        <td><%= light_reading.node5 %></td>
+        <td><%= light_reading.node6 %></td>
+        <td><%= light_reading.node7 %></td>
+        <td><%= light_reading.node8 %></td>
+        <td><%= light_reading.temp %></td>
+        <td><%= light_reading.garden_id %></td>
+        <td><%= link_to 'Show', light_reading %></td>
+        <td><%= link_to 'Edit', edit_light_reading_path(light_reading) %></td>
+        <td><%= link_to 'Destroy', light_reading, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Export Readings to excel spreadsheet', light_readings_path(format: "xlsx") %>
+<%= link_to 'New Light Reading', new_light_reading_path %>
