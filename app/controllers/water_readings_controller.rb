@@ -29,7 +29,8 @@ class WaterReadingsController < ApplicationController
   # POST /water_readings
   # POST /water_readings.json
   def create
-    @water_reading = WaterReading.new(water_reading_params)
+    @water_reading = WaterReading.new(water_reading_params[:water_reading])
+    respond_to do |format|
       if @water_reading.save
         format.html { redirect_to @water_reading, notice: 'Water reading was successfully created.' }
         format.json { render :json => @water_reading, status: :created, location: @water_reading }
