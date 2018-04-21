@@ -1,4 +1,5 @@
 class WaterReadingsController < ApplicationController
+  skip_before_action :verify_authenticity_token, if: :json_request?
   before_action :set_water_reading, only: [:show, :edit, :update, :destroy]
 
   # GET /water_readings
