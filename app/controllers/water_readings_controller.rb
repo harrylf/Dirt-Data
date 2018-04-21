@@ -30,7 +30,7 @@ class WaterReadingsController < ApplicationController
   # POST /water_readings.json
   def create
     @water_reading = WaterReading.new(water_reading_params)
-
+    @water_reading.save
     respond_to do |format|
       if @water_reading.save
         format.html { redirect_to @water_reading, notice: 'Water reading was successfully created.' }
@@ -66,10 +66,6 @@ class WaterReadingsController < ApplicationController
     end
   end
 
-  protected
-  def json_request?
-    request.format.json?
-  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_water_reading
