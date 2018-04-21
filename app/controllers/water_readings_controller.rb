@@ -38,6 +38,7 @@ class WaterReadingsController < ApplicationController
         format.html { render :new }
         format.json { render json: @water_reading.errors, status: :unprocessable_entity }
       end
+    end
   end
 
   # PATCH/PUT /water_readings/1
