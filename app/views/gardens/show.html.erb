@@ -6,11 +6,10 @@
       <button onclick="toggleHeatmap()">Toggle Heatmap</button>
       <button onclick="changeRadius()">Change radius</button>
       <button onclick="changeOpacity()">Change opacity</button>
+      <button onclick="switchMap()">See other map</button>
         <script>changeGradient();</script>
     </div>
     <div id="map"></div>
-    
-
 <strong>Water Readings</strong>
 <table>
   <thead>
@@ -101,24 +100,50 @@
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=visualization">
 
       var map, heatmap;
+      var firstData = true;
 
       function initMap() {
+              var waterData = [
+              {location: new google.maps.LatLng(41.663969, -91.580529), weight: gon.water_node1}, 
+              {location: new google.maps.LatLng(41.663844, -91.580728), weight: gon.water_node2},  
+              {location: new google.maps.LatLng(41.663896, -91.580728), weight: gon.water_node3},
+              {location: new google.maps.LatLng(41.663873, -91.580867), weight: gon.water_node4}, 
+              {location: new google.maps.LatLng(41.663971, -91.580535), weight: gon.water_node5},  
+              {location: new google.maps.LatLng(41.663995, -91.580535), weight: gon.water_node6}, 
+              {location: new google.maps.LatLng(41.663975, -91.580774), weight: gon.water_node7},
+              {location: new google.maps.LatLng(41.663882, -91.580580), weight: gon.water_node8} 
+        ]
+      var lightData = [
+              {location: new google.maps.LatLng(41.663969, -91.580529), weight: gon.light_node1}, 
+              {location: new google.maps.LatLng(41.663844, -91.580728), weight: gon.light_node2},  
+              {location: new google.maps.LatLng(41.663896, -91.580728), weight: gon.light_node3},
+              {location: new google.maps.LatLng(41.663873, -91.580867), weight: gon.light_node4}, 
+              {location: new google.maps.LatLng(41.663971, -91.580535), weight: gon.light_node5},  
+              {location: new google.maps.LatLng(41.663995, -91.580535), weight: gon.light_node6}, 
+              {location: new google.maps.LatLng(41.663975, -91.580774), weight: gon.light_node7},
+              {location: new google.maps.LatLng(41.663399, -91.580920), weight: gon.light_node8},  
+        ]
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 20,
           center: {lat: 41.663934, lng: -91.580702}, 
           mapTypeId: 'satellite'
         });
-
+        waterArray = new google.maps.MVCArray(waterData)
+        lightArray = new google.maps.MVCArray(lightData)
         heatmap = new google.maps.visualization.HeatmapLayer({
-          data: getPoints(),
+          data: waterArray,
           map: map
         });
       }
 
       function toggleHeatmap() {
-        heatmap.setMap(heatmap.getMap() ? null : map);
-        console.log(gon.node1)
-      }
+        if(firstData){
+          heatmap.setData(lightArray);
+          firstData = false;
+        }else{
+          heatmap.setData(waterArray);
+          firstData=true;
+        }
 
       function changeGradient() {
         var gradient = [
@@ -147,20 +172,8 @@
       function changeOpacity() {
         heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
       }
-
+}
       // Heatmap data: 8 Points
-      function getPoints() {
-        return [
-            {location: new google.maps.LatLng(41.663978, -91.580580), weight: gon.water_node1}, 
-            {location: new google.maps.LatLng(41.663992, -91.580635), weight: gon.water_node2},  
-            {location: new google.maps.LatLng(41.663999, -91.580807), weight: gon.water_node3},
-            {location: new google.maps.LatLng(41.663987, -91.580862), weight: gon.water_node4}, 
-            {location: new google.maps.LatLng(41.663895, -91.580858), weight: gon.water_node5},  
-            {location: new google.maps.LatLng(41.663900, -91.580804), weight: gon.water_node6}, 
-            {location: new google.maps.LatLng(41.663897, -91.580690), weight: gon.water_node7},
-            {location: new google.maps.LatLng(41.663882, -91.580580), weight: gon.water_node8},  
-        ];
-      }
     </script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBmeSHfe_LRphiwgEiP5CVF4ddctpEvMk &libraries=visualization&callback=initMap">
