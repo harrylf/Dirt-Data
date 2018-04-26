@@ -1,8 +1,8 @@
 wb = xlsx_package.workbook
 
 wb.add_worksheet(name: "Light Readings") do |sheet|
-    sheet.add_row %w(Date/Time Node1 Node2 Node3 Node4 Node5 Node6 Node7 Node8 Temperature)
+    sheet.add_row %w(Date/Time Node1 Node2 Node3 Node4 Node5 Node6 Node7 Node8 )
     @light_readings.each do |reading|
-        sheet.add_row [reading.created_at.in_time_zone("Central Time (US & Canada)").strftime("%m-%d-%Y %l:%M %p"), reading.node1, reading.node2,reading.node3,reading.node4, reading.node5, reading.node6,reading.node7,reading.node8,reading.temp]
+        sheet.add_row [reading.created_at.in_time_zone("Central Time (US & Canada)").strftime("%m-%d-%Y %l:%M %p"), reading.node1, reading.node2,reading.node3,reading.node4, reading.node5, reading.node6,reading.node7,reading.node8]
     end
 end

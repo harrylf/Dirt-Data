@@ -6,85 +6,11 @@
       <button onclick="toggleHeatmap()">Toggle Heatmap</button>
       <button onclick="changeRadius()">Change radius</button>
       <button onclick="changeOpacity()">Change opacity</button>
-      <button onclick="switchMap()">See other map</button>
         <script>changeGradient();</script>
     </div>
     <div id="map"></div>
-<strong>Water Readings</strong>
-<table>
-  <thead>
-    <tr>
-      <th>Time of Reading</th>
-      <th>Node 1</th>
-      <th>Node 2</th>
-      <th>Node 3</th>
-      <th>Node 4</th>
-      <th>Node 5</th>
-      <th>Node 6</th>
-      <th>Node 7</th>
-      <th>Node 8</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @garden.water_reading.take(200).reverse.each do |reading| %>
-      <tr>
-        <td><%= reading.created_at.in_time_zone("Central Time (US & Canada)").strftime("%m-%d-%Y %l:%M %p") %></td>
-        <td><%= reading.node1 %></td>
-        <td><%= reading.node2 %></td>
-        <td><%= reading.node3 %></td>
-        <td><%= reading.node4 %></td>
-        <td><%= reading.node5 %></td>
-        <td><%= reading.node6 %></td>
-        <td><%= reading.node7 %></td>
-        <td><%= reading.node8 %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 <tr><%= link_to 'View All Water Readings', water_readings_path %></tr>
-<strong>Light Readings</strong>
-<table>
-  <thead>
-    <tr>
-      <th>Time of Reading</th>
-      <th>Temperature</th>
-      <th>Node 1</th>
-      <th>Node 2</th>
-      <th>Node 3</th>
-      <th>Node 4</th>
-      <th>Node 5</th>
-      <th>Node 6</th>
-      <th>Node 7</th>
-      <th>Node 8</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @garden.light_reading.take(200).reverse.each do |reading| %>
-      <tr>
-        <td><%= reading.created_at.in_time_zone("Central Time (US & Canada)").strftime("%m-%d-%Y %l:%M %p") %></td>
-        <td><%= reading.temp %></td>
-        <td><%= reading.node1 %></td>
-        <td><%= reading.node2 %></td>
-        <td><%= reading.node3 %></td>
-        <td><%= reading.node4 %></td>
-        <td><%= reading.node5 %></td>
-        <td><%= reading.node6 %></td>
-        <td><%= reading.node7 %></td>
-        <td><%= reading.node8 %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to 'View All light Reading', light_readings_path %>
-<%= link_to 'Edit', edit_garden_path(@garden) %> |
-<%= link_to 'Back', gardens_path %>
-<%= link_to 'View All Readings', light_readings_path %>
-<%= link_to 'New Water Reading',new_water_reading_path(@garden) %>
-<%= link_to 'New Light Reading', new_light_reading_path(@garden) %>
-
-      
+<%= link_to 'View All Light Readings', light_readings_path %>
     <div id="floating-panel">
       <button onclick="toggleHeatmap()">Toggle Heatmap</button>
       <button onclick="changeRadius()">Change radius</button>
