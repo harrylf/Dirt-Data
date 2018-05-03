@@ -1,16 +1,14 @@
 <%=include_gon %>;
 
-
-<p id="notice"><%= notice %></p>
-    <div id="floating-panel">
+    <div id="floating-panel"</div>
       <button onclick="toggleHeatmap()">Toggle Heatmap</button>
       <button onclick="changeRadius()">Change radius</button>
       <button onclick="changeOpacity()">Change opacity</button>
         <script>changeGradient();</script>
     </div>
     <div id="map"></div>
-<tr><%= link_to 'View All Water Readings', water_readings_path %></tr>
-<%= link_to 'View All Light Readings', light_readings_path %>
+<tr><%= link_to 'View All Water Readings', water_readings_path,:class => 'button' %></tr>
+<%= link_to 'View All Light Readings', light_readings_path,:class => 'button' %>
     <div id="floating-panel">
       <button onclick="toggleHeatmap()">Toggle Heatmap</button>
       <button onclick="changeRadius()">Change radius</button>
@@ -36,8 +34,7 @@
               {location: new google.maps.LatLng(41.663873, -91.580867), weight: gon.water_node4}, 
               {location: new google.maps.LatLng(41.663971, -91.580535), weight: gon.water_node5},  
               {location: new google.maps.LatLng(41.663995, -91.580535), weight: gon.water_node6}, 
-              {location: new google.maps.LatLng(41.663975, -91.580774), weight: gon.water_node7},
-              {location: new google.maps.LatLng(41.663882, -91.580580), weight: gon.water_node8} 
+              {location: new google.maps.LatLng(41.663975, -91.580774), weight: gon.water_node7}
         ]
       var lightData = [
               {location: new google.maps.LatLng(41.663969, -91.580529), weight: gon.light_node1}, 
@@ -46,8 +43,7 @@
               {location: new google.maps.LatLng(41.663873, -91.580867), weight: gon.light_node4}, 
               {location: new google.maps.LatLng(41.663971, -91.580535), weight: gon.light_node5},  
               {location: new google.maps.LatLng(41.663995, -91.580535), weight: gon.light_node6}, 
-              {location: new google.maps.LatLng(41.663975, -91.580774), weight: gon.light_node7},
-              {location: new google.maps.LatLng(41.663399, -91.580920), weight: gon.light_node8},  
+              {location: new google.maps.LatLng(41.663975, -91.580774), weight: gon.light_node7}
         ]
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 20,

@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Created At</th>
+      <th>Reading at</th>
       <th>Node1</th>
       <th>Node2</th>
       <th>Node3</th>
@@ -13,13 +13,11 @@
       <th>Node5</th>
       <th>Node6</th>
       <th>Node7</th>
-      <th>Node8</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @water_readings.each do |water_reading| %>
+    <% @water_readings.each.reverse_each do |water_reading| %>
       <tr>
         <td><%= water_reading.created_at.in_time_zone("Central Time (US & Canada)").strftime("%m-%d-%Y %l:%M %p") %></td>
         <td><%= water_reading.node1 %></td>
@@ -29,15 +27,11 @@
         <td><%= water_reading.node5 %></td>
         <td><%= water_reading.node6 %></td>
         <td><%= water_reading.node7 %></td>
-        <td><%= water_reading.node8 %></td>
-        <td><%= link_to 'Show', water_reading %></td>
-        <td><%= link_to 'Edit', edit_water_reading_path(water_reading) %></td>
-        <td><%= link_to 'Destroy', water_reading, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<%= link_to 'Export Readings to excel spreadsheet', water_readings_path(format: "xlsx") %>
-<%= link_to 'New Water Reading', new_water_reading_path %>
+<%= link_to 'Export Readings to excel spreadsheet', water_readings_path(format: "xlsx"),:class => 'button' %>
+<%= link_to 'Back',gardens_path,:class => 'button' %>
